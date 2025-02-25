@@ -21,12 +21,12 @@ export function Product() {
 
   return (
     <Layout>
-      <div id="card" className="m-auto max-w-2xl">
+      <div id="card" className="flex flex-col items-center mt-6">
         {data.id ? (
-          <div>
-            <h2>{data.title}</h2>
+          <div className="flex items-center flex-col max-w-lg max-h-32">
             {data.media.length && (
               <img
+                className=" max-h-96 mb-6"
                 src={data.media[0].url}
                 alt="alt text"
                 onError={(e) => {
@@ -35,18 +35,13 @@ export function Product() {
                 }}
               />
             )}
-            <p>{data.description}</p>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <p>created: {data.created}</p>
-            <p>updated: {data.updated}</p>
-            <p>ENDS_AT: {data.endsAt}</p>
-            <br />
-            <br />
-            <br />
+            <div className="flex flex-col gap-2 bg-amber-600 p-2">
+              <h1 className="text-2xl">{data.title}</h1>
+              <p className="border-b-2">{data.description}</p>
+              <p>created: {data.created}</p>
+              <p>updated: {data.updated}</p>
+              <p>ENDS_AT: {data.endsAt}</p>
+            </div>
           </div>
         ) : (
           <h2>loading</h2>
